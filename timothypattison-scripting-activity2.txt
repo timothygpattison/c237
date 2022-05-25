@@ -3,4 +3,6 @@
 #AUTHOR : Tim
 #SCRIPT : Activity2
 
+DATE=`date +'%Y%m%d'`
+echo "The date is $DATE"
 
