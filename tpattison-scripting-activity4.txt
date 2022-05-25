@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity4
+
+read -p "Please enter your password " password
+
+while [[ ! ${#password} -ge 8 || ! "$password" =~ [a-z] || ! "$password" =~ [A-Z] || ! "$password" =~ [0-9] ]]
+do
+	
+	echo "Password must be at least 8 characters, contain numbers, lowercase letters and uppercase letters."
+	read -p "Please enter your password " password
+done
+echo "Password Validated"
+
