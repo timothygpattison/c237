@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim
+#SCRIPT : Activity1
+
+DATE=`date +'%Y-%m-%d'`
+TIME=`date +'%I:%M:%S'`
+CURRENTLOCAL=`pwd`
+FILECOUNT=`ls | wc -l`
+LARGESTNAME=`du -sh * | sort -rh | head -1 | awk '{print $2}'`
+LARGESTSIZE=`du -sh * | sort -rh | head -1 | awk '{print $1}'`
+
+echo "The user is $USER"
+echo "The date is $DATE"
+echo "The current time is $TIME"
+echo "The working directory is $CURRENTLOCAL"
+echo "There are $FILECOUNT in the current directory"
+echo "The largest file is $LARGESTNAME and the size of the file is $LARGESTSIZE"
+
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#AUTHOR : Tim
+#SCRIPT : Activity2
+
+DATE=`date +'%Y%m%d'`
+
+for f in /home/ec2-user/c237/activity2test/*;
+do
+	mv "$f" "$f.$DATE"
+done
+
+
