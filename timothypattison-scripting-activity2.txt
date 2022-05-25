@@ -4,5 +4,10 @@
 #SCRIPT : Activity2
 
 DATE=`date +'%Y%m%d'`
-echo "The date is $DATE"
+
+for f in /home/ec2-user/c237/activity2test/*;
+do
+	mv "$f" "$f.$DATE"
+done
+
 
