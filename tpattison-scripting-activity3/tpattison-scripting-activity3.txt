@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim
+#SCRIPT : Activity1
+
+DATE=`date +'%Y-%m-%d'`
+
+shuf -i 1-50 -n 5 > winningnumbers${DATE}.txt
+shuf -i 1-10 -n 1 >> winningnumbers${DATE}.txt
+
+echo `cat winningnumbers${DATE}.txt`
