@@ -5,25 +5,31 @@
 #SCRIPT : Activity3 - Check Winning Numbers
 
 DATE=`date +'%Y-%m-%d'`
+numbersfile=winningnumbers${DATE}.txt
+winningnums=()
 
 read -p "Please enter your 5 lottery number " numbers
 read -p "Please enter your megaball number " mega
-
-numbersfile=winningnumbers${DATE}.txt
-winningnums=()
 
 while read line;
 do
 	winningnums+=($line)
 done < $numbersfile
 
-
 megamatch=0
 normalmatch=0
-for i in ${winningnums[@]}
+
+for i in "${winningnums[@]:0:5}"
+do
+	if [[ ( $numbers == *"$i"* ) ]]
+	then
+		let normalmatch+=1
+	fi
+done
+
 if [ ${winningnums[5]} = $mega ]
 then
-	megamatch=1
+	echo "You matched $normalmatch normal balls and the megaball!"
+else
+	echo "You matched $normalmatch normal balls and did not match the megaball!"
 fi
-
-
