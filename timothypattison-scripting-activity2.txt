@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#AUTHOR : Tim
+#SCRIPT : Activity2
+
+
