@@ -4,4 +4,26 @@
 #AUTHOR : Tim
 #SCRIPT : Activity3 - Check Winning Numbers
 
+DATE=`date +'%Y-%m-%d'`
+
+read -p "Please enter your 5 lottery number " numbers
+read -p "Please enter your megaball number " mega
+
+numbersfile=winningnumbers${DATE}.txt
+winningnums=()
+
+while read line;
+do
+	winningnums+=($line)
+done < $numbersfile
+
+
+megamatch=0
+normalmatch=0
+for i in ${winningnums[@]}
+if [ ${winningnums[5]} = $mega ]
+then
+	megamatch=1
+fi
+
 
