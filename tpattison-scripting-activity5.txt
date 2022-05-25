@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity5 - Reverse Input
+
+read -p "Please enter some text to reverse " toreverse
+echo $toreverse | rev
+
