@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim
+#SCRIPT : Activity3 - Check Winning Numbers
+
+
