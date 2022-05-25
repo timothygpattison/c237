@@ -2,7 +2,7 @@
 
 #
 #AUTHOR : Tim
-#SCRIPT : Activity1
+#SCRIPT : Activity3 - Generate Winning Numbers
 
 DATE=`date +'%Y-%m-%d'`
 
