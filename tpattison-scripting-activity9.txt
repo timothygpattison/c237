@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity9 - Create File
+
+if test -f "$1"
+then
+    	echo "Error. There is already a file with the name $1."
+else
+	touch $1
+	echo "File $1 created."
+fi
+
