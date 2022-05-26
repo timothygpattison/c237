@@ -3,4 +3,17 @@
 #AUTHOR : Tim Pattison
 #SCIRPT : Activity11 - Sort Number File
 
-file='
+numbers=()
+file='numberfile'
+while read line;
+do
+	if [[ "${numbers[@]} " =~ $line ]]
+	then
+		continue
+	else
+		numbers+=($line)
+	fi
+done < $file
+
+printf '%s\n' "${numbers[@]}" | sort -nr
+
