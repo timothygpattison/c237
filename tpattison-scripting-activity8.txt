@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity8 - Calculator
+
+numbers=()
+min5=0
+re='^[0-9]+$'
+while [[ ${#numbers[@]} -lt 10 && $min5 = 0 ]]
+do
+	if [[ ${#numbers[@] -lt 5 ]]
+	then
+	
+	read -p "Please enter a number: " usernum
+	fi
+
+	if [[ ! $usernum =~ $re ]]
+	then
+		echo "Invalid. Not a number."
+	else
+		numbers+=("$usernum")
+	fi
+
+done
