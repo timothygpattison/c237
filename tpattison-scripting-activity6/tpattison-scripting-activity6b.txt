@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim
+#SCRIPT : Activity6 - Number Difference
+
+read -p "Please enter a number to compare " number1
+while [[ ! $number1 =~ ^[0-9]+$ ]]
+do
+	read -p "Invalid. Please enter a number " number1
+done
+read -p "Please enter another number to compare " number2
+
+while [[ ! $number2 =~ ^[0-9]+$ ]]
+do
+	read -p "Invalid. Please enter a number " number2
+done
+
+if [[ $number1 -gt $number2 ]]
+then
+	echo "The difference between the numbers is $(( $number1 - $number2 ))"
+elif [[ $number1 -lt $number2 ]]
+then
+	echo "The difference between the numbers is $(( $number2 - $number1 ))"
+else
+	echo "The numbers are equal"
+fi
