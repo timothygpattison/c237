@@ -4,22 +4,90 @@
 #AUTHOR : Tim Pattison
 #SCRIPT : Activity8 - Calculator
 
+function maxnum()
+{
+	arr=("$@")
+	max=${arr[0]}
+	for i in "${arr[@]}"
+	do
+		(( i > max )) && max=$i
+	done
+	echo $max	
+}
+
+function minnum()
+{
+ 	arr=("$@")
+        min=${arr[0]}
+        for i in "${arr[@]}"
+        do
+                (( i < min )) && min=$i
+        done
+        echo $min
+}
+
+function sumnum()
+{
+        arr=("$@")
+        sum=0
+        for i in "${arr[@]}"
+        do
+                let sum+=$i
+        done
+        echo $sum
+}
+
+function avgnum()
+{
+        arr=("$@")
+	sum=0
+        for i in "${arr[@]}"
+        do
+                let sum+=$i
+        done
+	echo $(( sum / ${#arr[@]} ))
+
+}
+
+function pronum()
+{
+        arr=("$@")
+        pro=1
+        for i in "${arr[@]}"
+        do
+                let pro*=$i
+        done
+        echo $pro
+
+}
+
+
 numbers=()
 min5=0
 re='^[0-9]+$'
 while [[ ${#numbers[@]} -lt 10 && $min5 = 0 ]]
 do
-	if [[ ${#numbers[@] -lt 5 ]]
+	if [[ ${#numbers[@]} -gt 4 ]]
 	then
-	
-	read -p "Please enter a number: " usernum
+		read -p "Please enter a number or f to finish: " usernum
+	else
+		read -p "Please enter a number: " usernum
 	fi
 
-	if [[ ! $usernum =~ $re ]]
+	if [[ $usernum = 'f' && ${#numbers[@]} -gt 4 ]]
 	then
+		min5=1
+	elif [[ ! $usernum =~ $re ]]
+	then 
 		echo "Invalid. Not a number."
 	else
 		numbers+=("$usernum")
 	fi
-
 done
+
+echo "You entered the numbers ${numbers[@]}"
+echo "The product of the numbers is "`pronum "${numbers[@]}"`
+echo "The average of the numbers is "`avgnum "${numbers[@]}"`
+echo "The sum of the numbers is "`sumnum "${numbers[@]}"` 
+echo "The minimum number is "`minnum "${numbers[@]}"`
+echo "The maximum number is "`maxnum "${numbers[@]}"`
