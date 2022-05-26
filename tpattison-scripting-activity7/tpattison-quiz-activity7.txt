@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#
+#AUTHOR : Tim
+#SCRIPT : Activity7 - Movie Trivia
+
+echo "Welcome to movie trivia. Please enter True or False to each question."
+rightanswers=0
+IFS=,
+file='quizquestions'
+while read question answer;
+do
+	echo "$question"
+	while [[ ! "$useranswer" = "True" && ! "$useranswer" = "False" ]]
+	do
+		read -p "Please enter True or False: " useranswer < /dev/tty	
+	done
+	if [ "$answer" = "$useranswer" ]
+	then
+		let rightanswers+=1
+	fi
+	echo "It was $answer!"
+	useranswer=
+
+done < $file
+
+echo "You got $rightanswers questions correct!"
