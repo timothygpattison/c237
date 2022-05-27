@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#
+
 #AUTHOR : Tim Pattison
 #SCRIPT : Activity5 - Reverse Input
 
