@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity13 - Compare number files
+
+
