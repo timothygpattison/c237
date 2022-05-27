@@ -3,6 +3,7 @@
 #AUTHOR : Tim Pattison
 #SCRIPT : Activity12 - Compare Files
 
+
 while read line
 do
 	for word in $line
@@ -22,10 +23,13 @@ done <$2
 commonwords=()
 for w in "${words1[@]}"
 do
-	if [[ "${words2[@]}" =~ $w ]]
-	then
-		commonwords+=($w)
-	fi
+	for w2 in "${words2[@]}"
+	do
+		if [[ $w = $w2 ]]
+		then
+			commonwords+=($w)
+		fi
+	done
 done
 
 if [[ "${#commonwords[@]}" = 0 ]]
@@ -33,9 +37,6 @@ then
 	echo "There are no common elements between the two files."
 else
 	echo "The files share common words."
-	echo "The common words are ${commonwords[@]}"
+	echo "The common words are: ${commonwords[@]}"
 fi
-sorted1=(`printf '%s\n' "${words1[@]}" | sort`)
-sorted2=(`printf '%s\n' "${words2[@]}" | sort`)
-
 
