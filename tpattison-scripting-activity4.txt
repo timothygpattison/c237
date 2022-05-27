@@ -2,7 +2,7 @@
 
 #
 #AUTHOR : Tim Pattison
-#SCRIPT : Activity4
+#SCRIPT : Activity4 - Password Checker
 
 read -p "Please enter your password " password
 
