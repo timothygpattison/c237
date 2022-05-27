@@ -1,8 +1,7 @@
 #!/bin/sh
 
-#
-#AUTHOR : Tim
-#SCRIPT : Activity1
+#AUTHOR : Tim Pattison
+#SCRIPT : Activity1 - Session Info
 
 DATE=`date +'%Y-%m-%d'`
 TIME=`date +'%I:%M:%S'`
