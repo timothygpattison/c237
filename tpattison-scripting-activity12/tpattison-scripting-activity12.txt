@@ -3,17 +3,39 @@
 #AUTHOR : Tim Pattison
 #SCRIPT : Activity12 - Compare Files
 
+while read line
+do
+	for word in $line
+	do
+		words1+=($word)
+	done
+done <$1
 
-words1=()
+while read line
+do
+	for word in $line
+	do
+		words2+=($word)
+	done
+done <$2
 
-IFS=$'\n' read -d ' ' -r  words1 < $1
+commonwords=()
+for w in "${words1[@]}"
+do
+	if [[ "${words2[@]}" =~ $w ]]
+	then
+		commonwords+=($w)
+	fi
+done
 
-echo "${words1[@]}"
+if [[ "${#commonwords[@]}" = 0 ]]
+then 
+	echo "There are no common elements between the two files."
+else
+	echo "The files share common words."
+	echo "The common words are ${commonwords[@]}"
+fi
+sorted1=(`printf '%s\n' "${words1[@]}" | sort`)
+sorted2=(`printf '%s\n' "${words2[@]}" | sort`)
 
-#if cmp -s "$1" "$2"
-#then
-#	echo "The files are the same"
-#else
-#	echo "The files are different"
-#	echo `comm $1 $2`
-#fi
+
