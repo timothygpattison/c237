@@ -3,7 +3,6 @@
 #AUTHOR : Tim Pattison
 #SCRIPT : Activity12 - Compare Files
 
-
 while read line
 do
 	for word in $line
