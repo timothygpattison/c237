@@ -1,7 +1,7 @@
 #!/bin/sh
 
-#
-#AUTHOR : Tim
+
+#AUTHOR : Tim Pattison
 #SCRIPT : Activity3 - Generate Winning Numbers
 
 DATE=`date +'%Y-%m-%d'`
