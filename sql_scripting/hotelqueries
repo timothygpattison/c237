@@ -1,0 +1,160 @@
+-- QUERY 1
+SELECT 
+    guesttable.FirstName,
+    guesttable.LastName,
+    reservationtable.RoomNumber,
+    reservationtable.StartDate,
+    reservationtable.EndDate
+FROM
+    reservationtable
+        INNER JOIN
+    guesttable ON reservationtable.GuestID = guesttable.GuestID
+WHERE
+    reservationtable.EndDate BETWEEN '2023-7-1' AND '2023-7-31';
+/*
+Tim			Pattison	205		2023-06-28	2023-07-02
+Walter		Holaway		204		2023-07-13	2023-07-14
+Wilfred		Vise		401		2023-07-18	2023-07-21
+Bettyann	Seery		303		2023-07-28	2023-07-29
+*/
+
+SELECT 
+    guesttable.FirstName,
+    guesttable.LastName,
+    reservationtable.RoomNumber,
+    reservationtable.StartDate,
+    reservationtable.EndDate
+FROM
+    reservationtable
+        INNER JOIN
+    guesttable ON reservationtable.GuestID = guesttable.GuestID
+        INNER JOIN
+    roomamenitiestable ON reservationtable.RoomNumber = roomamenitiestable.RoomNumber
+        INNER JOIN
+    amenitiestable ON amenitiestable.AmenitiesID = roomamenitiestable.AmenitiesID
+WHERE
+    amenitiestable.Amenities = 'Jacuzzi';
+/*
+Karie		Yang		201		2023-03-06	2023-03-07
+Bettyann	Seery		203		2023-02-05	2023-02-10
+Karie		Yang		203		2023-09-13	2023-09-15
+Tim			Pattison	205		2023-06-28	2023-07-02
+Wilfred		Vise		207		2023-04-23	2023-04-24
+Walter		Holaway		301		2023-04-09	2023-04-13
+Mack		Simmer		301		2023-11-22	2023-11-25
+Bettyann	Seery		303		2023-07-28	2023-07-29
+Duane		Cullison	305		2023-02-22	2023-02-24
+Bettyann	Seery		305		2023-08-30	2023-09-01
+Tim			Pattison	307		2023-03-17	2023-03-20
+*/
+
+
+SELECT 
+    guesttable.FirstName,
+    guesttable.LastName,
+    reservationtable.RoomNumber,
+    reservationtable.StartDate,
+    reservationtable.Adults + reservationtable.Children Guests
+FROM
+    reservationtable
+        INNER JOIN
+    guesttable ON reservationtable.GuestID = guesttable.GuestID
+WHERE
+    guesttable.GuestID = 5;
+/*
+Karie	Yang	201	2023-03-06	4
+Karie	Yang	203	2023-09-13	4
+*/
+
+SELECT 
+    roomtable.RoomNumber,
+    reservationtable.ReservationID,
+    reservationtable.Cost
+FROM
+    roomtable
+        LEFT OUTER JOIN
+    reservationtable ON reservationtable.RoomNumber = roomtable.RoomNumber;
+/*
+201	4	199.99
+202	7	349.98
+203	2	999.95
+203	21	399.98
+204	16	184.99
+205	15	699.96
+206	12	599.96
+206	23	449.97
+207	10	174.99
+208	13	599.96
+208	20	149.99
+301	9	799.96
+301	24	599.97
+302	6	924.95
+302	25	699.96
+303	18	199.99
+304	14	184.99
+305	3	349.98
+305	19	349.98
+306		
+307	5	524.97
+308	1	299.98
+401	11	1199.97
+401	17	1259.97
+401	22	1199.97
+402		
+*/
+
+SELECT 
+    roomtable.RoomNumber,
+    reservationtable.Adults + reservationtable.Children Guests,
+    reservationtable.StartDate,
+    reservationtable.EndDate
+FROM
+    reservationtable
+        INNER JOIN
+    roomtable ON reservationtable.RoomNumber = roomtable.RoomNumber
+WHERE
+    reservationtable.Adults + reservationtable.Children >= 3
+        AND (reservationtable.StartDate BETWEEN '2023-4-1' AND '2023-4-30'
+        OR reservationtable.EndDate BETWEEN '2023-4-1' AND '2023-4-30');
+/*
+Returns Nothing
+*/
+
+SELECT 
+    guesttable.FirstName,
+    guesttable.LastName,
+    COUNT(*) 'Number of Reservations'
+FROM
+    reservationtable
+        INNER JOIN
+    guesttable ON reservationtable.GuestID = guesttable.GuestID
+GROUP BY guesttable.GuestID
+ORDER BY COUNT(*) DESC , guesttable.LastName;
+/*
+Mack		Simmer		4
+Bettyann	Seery		3
+Duane		Cullison	2
+Walter		Holaway		2
+Aurore		Lipton		2
+Tim			Pattison	2
+Maritza		Tilton		2
+Joleen		Tison		2
+Wilfred		Vise		2
+Karie		Yang		2
+Zachery		Luechtefeld	1
+*/
+
+SELECT 
+    guesttable.FirstName,
+    guesttable.LastName,
+    guesttable.Address,
+    guesttable.Phone
+FROM
+    guesttable
+WHERE
+    guesttable.Phone = '3084940198';
+
+/*
+Duane	Cullison	9662 Foxrun Lane	3084940198
+*/
+
