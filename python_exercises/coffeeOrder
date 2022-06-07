@@ -43,5 +43,5 @@ else:
     print("You asked for a", coffeeSize, "cup of", coffeeType, "coffee with no additional flavor syrup")
 
 print("Your order subtotal is $", "{:.2f}".format(subtotal))
-print("Your order total with tip is $", "{:.2f}".format(total))
+print("Your order total with a 15% tip is $", "{:.2f}".format(total))
 
