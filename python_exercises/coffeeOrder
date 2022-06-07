@@ -1,0 +1,47 @@
+# Tim Pattison
+# Last Updated: 2022/06/07
+
+coffeeSize = input("Would you like a small, medium, or large coffee? ").lower()
+while not coffeeSize == "small" and not coffeeSize == "medium" and not coffeeSize == "large":
+    coffeeSize = input("Please enter small, medium, or large. ").lower()
+
+coffeeType = input("Would you like drip, espresso, or cold brew? ").lower()
+while not coffeeType == "drip" and not coffeeType == "espresso" and not coffeeType == "cold brew":
+    coffeeType = input("Please enter drip, espresso, or cold brew. ").lower()
+
+additionalFlavor = input("Would you like to add any additional flavoring to your coffee? Enter yes or no. ").lower()
+while not additionalFlavor == "yes" and not additionalFlavor == "no":
+    additionalFlavor = input("Please enter yes or no. ").lower()
+
+if additionalFlavor == "yes":
+    coffeeFlavor = input("Would you like vanilla, hazelnut, caramel, or none? ").lower()
+    while not coffeeFlavor == "vanilla" and not coffeeFlavor == "hazelnut" and not coffeeFlavor == "caramel" \
+            and not coffeeFlavor == "none":
+        coffeeFlavor = input("Please enter vanilla, hazelnut, caramel or none. ").lower()
+
+subtotal = 0
+if coffeeSize == "small":
+    subtotal += 2
+elif coffeeSize == "medium":
+    subtotal += 3
+elif coffeeSize == "large":
+    subtotal += 4
+
+if coffeeType == "espresso":
+    subtotal += .5
+elif coffeeType == "cold brew":
+    subtotal += 1
+
+if additionalFlavor == "yes" and not coffeeFlavor == "none":
+    subtotal += .5
+
+total = round(subtotal * 1.15, 3)
+
+if additionalFlavor == "yes" and not coffeeFlavor == "none":
+    print("You asked for a", coffeeSize, "cup of", coffeeType, "coffee with", coffeeFlavor, "syrup.")
+else:
+    print("You asked for a", coffeeSize, "cup of", coffeeType, "coffee with no additional flavor syrup")
+
+print("Your order subtotal is $", "{:.2f}".format(subtotal))
+print("Your order total with tip is $", "{:.2f}".format(total))
+
