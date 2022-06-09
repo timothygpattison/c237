@@ -1,47 +1,47 @@
 # Tim Pattison
-# Last Updated: 2022/06/07
+# Last Updated: 2022/06/09
 
-coffeeSize = input("Would you like a small, medium, or large coffee? ").lower()
-while not coffeeSize == "small" and not coffeeSize == "medium" and not coffeeSize == "large":
-    coffeeSize = input("Please enter small, medium, or large. ").lower()
+coffee_size = input("Would you like a small, medium, or large coffee? ").lower()
+while not coffee_size == "small" and not coffee_size == "medium" and not coffee_size\
+                                                            == "large":
+    coffee_size= input("Please enter small, medium, or large. ").lower()
 
-coffeeType = input("Would you like drip, espresso, or cold brew? ").lower()
-while not coffeeType == "drip" and not coffeeType == "espresso" and not coffeeType == "cold brew":
-    coffeeType = input("Please enter drip, espresso, or cold brew. ").lower()
+coffee_type = input("Would you like drip, espresso, or cold brew? ").lower()
+while not coffee_type == "drip" and not coffee_type == "espresso" and not coffee_type == "cold brew":
+    coffee_type = input("Please enter drip, espresso, or cold brew. ").lower()
 
-additionalFlavor = input("Would you like to add any additional flavoring to your coffee? Enter yes or no. ").lower()
-while not additionalFlavor == "yes" and not additionalFlavor == "no":
-    additionalFlavor = input("Please enter yes or no. ").lower()
+additional_flavor = input("Would you like to add any additional flavoring to your coffee? Enter yes or no. ").lower()
+while not additional_flavor == "yes" and not additional_flavor == "no":
+    additional_flavor = input("Please enter yes or no. ").lower()
 
-if additionalFlavor == "yes":
-    coffeeFlavor = input("Would you like vanilla, hazelnut, caramel, or none? ").lower()
-    while not coffeeFlavor == "vanilla" and not coffeeFlavor == "hazelnut" and not coffeeFlavor == "caramel" \
-            and not coffeeFlavor == "none":
-        coffeeFlavor = input("Please enter vanilla, hazelnut, caramel or none. ").lower()
+if additional_flavor == "yes":
+    coffee_flavor = input("Would you like vanilla, hazelnut, caramel, or none? ").lower()
+    while not coffee_flavor == "vanilla" and not coffee_flavor == "hazelnut" and not coffee_flavor == "caramel" \
+            and not coffee_flavor == "none":
+        coffee_flavor = input("Please enter vanilla, hazelnut, caramel or none. ").lower()
 
 subtotal = 0
-if coffeeSize == "small":
+if coffee_size == "small":
     subtotal += 2
-elif coffeeSize == "medium":
+elif coffee_size== "medium":
     subtotal += 3
-elif coffeeSize == "large":
+elif coffee_size== "large":
     subtotal += 4
 
-if coffeeType == "espresso":
+if coffee_type == "espresso":
     subtotal += .5
-elif coffeeType == "cold brew":
+elif coffee_type == "cold brew":
     subtotal += 1
 
-if additionalFlavor == "yes" and not coffeeFlavor == "none":
+if additional_flavor == "yes" and not coffee_flavor == "none":
     subtotal += .5
 
 total = round(subtotal * 1.15, 3)
 
-if additionalFlavor == "yes" and not coffeeFlavor == "none":
-    print("You asked for a", coffeeSize, "cup of", coffeeType, "coffee with", coffeeFlavor, "syrup.")
+if additional_flavor == "yes" and not coffee_flavor == "none":
+    print("You asked for a", coffee_size, "cup of", coffee_type, "coffee with", coffee_flavor, "syrup.")
 else:
-    print("You asked for a", coffeeSize, "cup of", coffeeType, "coffee with no additional flavor syrup")
+    print("You asked for a", coffee_size, "cup of", coffee_type, "coffee with no additional flavor syrup")
 
 print("Your order subtotal is $", "{:.2f}".format(subtotal))
 print("Your order total with a 15% tip is $", "{:.2f}".format(total))
-
